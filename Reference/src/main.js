@@ -12,6 +12,14 @@ import Number from './base/number.js'
 import FrameLayout from './base/frameLayout.js'
 
 let ctx = canvas.getContext('2d')
+//绘制二维图
+
+//audio
+var audio = wx.createInnerAudioContext()
+//audio.autoplay = true
+//audio.loop = true
+audio.src = 'audio/SWIN-S-只因你太美.mp3'
+
 
 export default class Main {
 
@@ -23,7 +31,6 @@ export default class Main {
 
   onCreate() {
     let that = this
-
     this.bg = new Background()
     this.land = new Land()
     this.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
@@ -128,11 +135,13 @@ export default class Main {
   gameOver() {
     databus.running = false
     databus.gameOver = true
+    audio.stop()
   }
 
   gameStart(){
     databus.running = true
     databus.gameOver = false
+    audio.play()
   }
 
 }

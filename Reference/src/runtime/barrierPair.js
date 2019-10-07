@@ -20,6 +20,8 @@ export default class BarrierPair extends Sprite {
 
     this.left = 0
     this.blank = 100
+    //柱子间的间距
+    
     this.scored = false
 
     this.topBarrier = new Barrier()

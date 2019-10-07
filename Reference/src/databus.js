@@ -64,6 +64,7 @@ export default class DataBus {
       let temp = this.barriers.shift()
       temp.visible = false
       this.barriers[0].left -= this.speed
+      //根据速度显示障碍物左移
       this.pool.put('barrier', temp)
     }
   }
