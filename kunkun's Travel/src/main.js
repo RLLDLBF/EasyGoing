@@ -16,8 +16,8 @@ let ctx = canvas.getContext('2d')
 
 //audio
 var audio = wx.createInnerAudioContext()
-//audio.autoplay = true
-//audio.loop = true
+audio.autoplay = true
+audio.loop = true
 audio.src = 'audio/SWIN-S-只因你太美.mp3'
 
 
