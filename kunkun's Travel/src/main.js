@@ -33,14 +33,16 @@ export default class Main {
     let that = this
     this.bg = new Background()
     this.land = new Land()
-    this.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+    //this.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+    this.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
     this.player.visible = false
 
     this.barrierManager = new BarrierManager()
     this.startGameWindow = new StartGameWindow()
     this.gameOverWindow = new GameOverWindow()
     this.gameOverWindow.setOnRestartListener(function() {
-      that.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+      //that.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+      that.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
       databus.barriers.length = 0
       that.gameStart()
       that.gameOverWindow.visible = false
