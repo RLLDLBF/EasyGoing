@@ -3,7 +3,8 @@
 
 import EvnItem from '../runtime/envItem.js'
 
-const BG_IMG_SRC = 'images/bg_day.png'
+//const BG_IMG_SRC = 'images/bg_day.png'
+const BG_IMG_SRC = 'images/bg.png'
 const BG_IMG_WIDTH = 288
 const BG_IMG_HEIGHT = 512
 

@@ -26,7 +26,8 @@ export default class GameOverWindow extends Group {
     this.frame.setGravity(Gravity.CENTER)
     this.frame.setSprite(this.contentLayout)
 
-    this.gameOverImg = new Sprite('images/text_game_over.png', 0, 0, 204, 54)
+    //this.gameOverImg = new Sprite('images/text_game_over.png', 0, 0, 204, 54)
+    this.gameOverImg = new Sprite('images/kun_game_over.png', 0, 0, 300, 300)
     this.startGameButton = new Button('images/button_play.png', 0, 0, 116, 70)
 
     this.startGameButton.setOnClickListener(function(view) {

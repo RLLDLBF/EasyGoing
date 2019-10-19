@@ -3,7 +3,8 @@
 
 import EvnItem from '../runtime/envItem.js'
 
-const LAND_IMG_SRC = 'images/land.png'
+//const LAND_IMG_SRC = 'images/land.png'
+const LAND_IMG_SRC = 'images/kunland.png'
 const LAND_IMG_WIDTH = 336
 const LAND_IMG_HEIGHT = 112
 

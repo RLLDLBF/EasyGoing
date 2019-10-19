@@ -1,6 +1,6 @@
 // @author: wyndam
 // @email: only.night@qq.com
-
+// 定义障碍物对象
 import EvnItem from '../runtime/envItem.js'
 
 const BARRIER_IMG_SRC = 'images/pipe_down.png'

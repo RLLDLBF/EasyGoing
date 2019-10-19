@@ -45,6 +45,7 @@ export default class BarrierPair extends Sprite {
 
     this.topBarrier.draw(ctx)
     this.bottomBarrier.draw(ctx)
+    //绘出柱子，但是碰撞检测函数不在这里
   }
 
   update() {
@@ -57,7 +58,7 @@ export default class BarrierPair extends Sprite {
   }
 
   /**
-   * 分别对两个障碍物做碰撞检测即可
+   * 分别对两个障碍物做碰撞检测即可（柱子的碰撞检测）
    */
   isCollideEdgeWith(target) {
     return (this.topBarrier.isCollideEdgeWith(target) || this.bottomBarrier.isCollideEdgeWith(target))

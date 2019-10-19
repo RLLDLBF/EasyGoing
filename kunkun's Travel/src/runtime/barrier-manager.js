@@ -8,7 +8,7 @@ export default class BarrierManager {
   constructor() {}
 
   /**
-   * 根据帧数，间隔一段时间生成一个障碍物，并将其加如全局缓存中
+   * 根据帧数，间隔一段时间生成一个障碍物，并将其加入全局缓存中
    */
   generateBarriers(frame) {
     if (frame % databus.barrierGenFrame === 0) {
@@ -18,6 +18,7 @@ export default class BarrierManager {
       databus.barriers.push(barrier)
     }
   }
+  //仿照这个加入篮球和鸡
 
   draw(ctx) {
     for (let i = 0; i < databus.barriers.length; i++) {

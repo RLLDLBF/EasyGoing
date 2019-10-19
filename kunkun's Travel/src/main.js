@@ -18,7 +18,8 @@ let ctx = canvas.getContext('2d')
 var audio = wx.createInnerAudioContext()
 audio.autoplay = true
 audio.loop = true
-audio.src = 'audio/SWIN-S-只因你太美.mp3'
+//audio.src = 'audio/SWIN-S-只因你太美.mp3'
+audio.src = 'audio/bg_music.mp3'
 
 
 export default class Main {
@@ -35,21 +36,27 @@ export default class Main {
     this.land = new Land()
     //this.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
     this.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+    //创建一个player坤坤
     this.player.visible = false
-
+    //一开始player不可见
     this.barrierManager = new BarrierManager()
+
     this.startGameWindow = new StartGameWindow()
     this.gameOverWindow = new GameOverWindow()
+
     this.gameOverWindow.setOnRestartListener(function() {
       //that.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+      //复制一份对象到that中，防止丢失初始对象
       that.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
       databus.barriers.length = 0
       that.gameStart()
       that.gameOverWindow.visible = false
       that.score.setNumber(0)
     })
+
     this.gameOverWindow.visible = false
 
+    //得分组件
     this.score = new Number(0);
     this.scoreFrame = new FrameLayout(0, 0, window.innerWidth, window.innerHeight / 3)
     this.scoreFrame.setSprite(this.score)
@@ -69,6 +76,7 @@ export default class Main {
       this.bindLoop,
       canvas
     )
+    //web API，执行一个动画，下次重绘前回调函数更新动画
   }
 
   loop() {
