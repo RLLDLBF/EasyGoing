@@ -2,9 +2,9 @@
 // @email: only.night@qq.com
 
 import Sprite from '../base/sprite.js'
-
-const PLAYER_WIDTH = 34
-const PLAYER_HEIGHT = 24
+//修改kunkun头的大小
+const PLAYER_WIDTH = 50
+const PLAYER_HEIGHT = 50
 const PLAYER_GRAVITY_ACC = 0.25
 const PLAYER_ACT_V0 = -6
 

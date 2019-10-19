@@ -18,7 +18,6 @@ let ctx = canvas.getContext('2d')
 var audio = wx.createInnerAudioContext()
 audio.autoplay = true
 audio.loop = true
-//audio.src = 'audio/SWIN-S-只因你太美.mp3'
 audio.src = 'audio/bg_music.mp3'
 
 
@@ -35,7 +34,7 @@ export default class Main {
     this.bg = new Background()
     this.land = new Land()
     //this.player = new Player('images/bird.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
-    this.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 - 25)
+    this.player = new Player('images/kunkun.png', window.innerWidth / 3, window.innerHeight / 2 -25)
     //创建一个player坤坤
     this.player.visible = false
     //一开始player不可见
