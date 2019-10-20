@@ -51,6 +51,7 @@ export default class BasketballPair extends Sprite{
     if(this.scored){
       return false
     }
+    this.scored = true
     return false
     //返回false，不加分
   }
