@@ -1,17 +1,13 @@
-// @author: wyndam
-// @email: only.night@qq.com
-// 定义障碍物对象
 import EvnItem from '../runtime/envItem.js'
 
-const BARRIER_IMG_SRC = 'images/pipe_down.png'
-const BARRIER_IMG1_SRC = 'images/pipe_up.png'
-const BARRIER_WIDTH = 52
-const BARRIER_HEIGHT = 200
+const CHICKEN_IMG_SRC =  'images/chicken.png'
 
-export default class Barrier extends EvnItem {
+const CHICKEN_WIDTH = 70
+const CHICKEN_HEIGHT = 70
 
-  constructor() {
-    super(BARRIER_IMG_SRC, 0, 0, BARRIER_WIDTH, BARRIER_HEIGHT)
+export default class Chicken extends EvnItem{
+  constructor(){
+    super(CHICKEN_IMG_SRC,0,0,CHICKEN_WIDTH,CHICKEN_HEIGHT)
 
     this.left = 0
   }
@@ -36,14 +32,12 @@ export default class Barrier extends EvnItem {
     if (!this.visible) {
       return
     }
-
     super.update()
 
     this.x = this.start + this.left
 
     if (this.x <= -(window.innerWidth + this.width)) {
       databus.recycleBarrier(this)
-      
     }
   }
 

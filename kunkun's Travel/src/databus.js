@@ -2,7 +2,10 @@
 // @email: only.night@qq.com
 
 import Pool from './base/pool.js'
-import BarrierPair from './runtime/barrierPair.js'
+
+import BasketballPair from './runtime/basketballPair.js'
+import ChickenPair from './runtime/chickenPair.js'
+//import BarrierPair from './runtime/barrierPair.js'
 
 window.RATIO = window.innerWidth / 288
 
@@ -34,7 +37,7 @@ export default class DataBus {
 
     // 全局难度参数
     this.speed = 2 // 速度
-    this.barrierGenFrame = 80 // 生成障碍物间隔帧数
+    this.barrierGenFrame = 160 // 生成障碍物间隔帧数
   }
 
   /**
@@ -43,35 +46,51 @@ export default class DataBus {
   recycleBarrier(barrier) {
     if (barrier != null) {
 
-      // let temp = null
-      // let index = -1
-      // for (let i = 0; i < this.barriers.length; i++) {
-      //   if (this.barriers[i].index == barrier.index) {
-      //     temp = this.barriers[i]
-      //     index = i
-      //     break
-      //   }
-      // }
-
-      // if (temp != null) {
-      //   this.barriers.splice(index, 1)
-      //   temp.visible = false
-      //   this.pool.put('barrier', temp)
-      //   // temp = null
-      // }
-
       barrier.visible = false
       let temp = this.barriers.shift()
       temp.visible = false
       this.barriers[0].left -= this.speed
       //根据速度显示障碍物左移
-      this.pool.put('barrier', temp)
+      this.pool.put('barrier',temp)
+      //this.pool.put('barrier', temp)
+      
     }
   }
 
   /**
    * 从对象池中去除障碍物组合对象，没有的话就创建一个
    */
+  generateBasketball(basketball,x,y){
+    //console.log('generateBasketball')
+    let barrier =  this.pool.get('barrier')
+
+    if(barrier!=null){
+      barrier.init(basketball,x,y)
+      return barrier
+    }
+    else {
+      let temp =new BasketballPair()
+      temp.init(basketball,x,y)
+      return temp
+    }
+
+  }
+
+  generateChicken(chicken,x,y){
+    let barrier = this.pool.get('barrier')
+
+    if(barrier!=null){
+      barrier.init(chicken,x,y)
+      return barrier
+    }
+    else{
+      let temp = new ChickenPair()
+      temp.init(chicken,x,y)
+      return temp
+    }
+  }
+
+
   generateBarrier(barrierTop, barrierBottom, x, y, blank) {
     let barrier = this.pool.get('barrier')
 

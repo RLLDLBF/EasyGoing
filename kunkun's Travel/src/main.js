@@ -3,7 +3,13 @@
 
 import Background from './runtime/background.js'
 import Land from './runtime/land.js'
+
+// import BarrierManager from './runtime/barrier-manager.js'
+import BasketballManager from './runtime/basketball-manager.js'
+import ChickenManager from './runtime/chicken-manager.js'
+/*** 
 import BarrierManager from './runtime/barrier-manager.js'
+***/
 import Player from './player/player.js'
 import StartGameWindow from './window/startGame.js'
 import GameOverWindow from './window/gameOver.js'
@@ -38,8 +44,13 @@ export default class Main {
     //创建一个player坤坤
     this.player.visible = false
     //一开始player不可见
+    
+    // this.barrierManager = new BarrierManager()
+    this.basketballManager =  new BasketballManager()
+    this.chickenManager = new ChickenManager()
+    /*** 
     this.barrierManager = new BarrierManager()
-
+    ***/
     this.startGameWindow = new StartGameWindow()
     this.gameOverWindow = new GameOverWindow()
 
@@ -98,7 +109,13 @@ export default class Main {
 
   render() {
     this.bg.draw(ctx)
+    /*** 
     this.barrierManager.draw(ctx)
+    ***/
+    this.basketballManager.draw(ctx)
+    this.chickenManager.draw(ctx)
+    // this.barrierManager.draw(ctx)
+
     this.land.draw(ctx)
     this.player.draw(ctx)
     this.startGameWindow.draw(ctx)
@@ -114,18 +131,31 @@ export default class Main {
   update() {
     this.bg.update()
     this.land.update()
+
+    /*** 
     this.barrierManager.update()
     this.barrierManager.generateBarriers(databus.frame)
+    ***/
+    this.basketballManager.update()
+    this.basketballManager.generateBasketballs(databus.frame)
+
+    this.chickenManager.update()
+    this.chickenManager.generateChickens(databus.frame)
+    // this.barrierManager.update()
+    // this.barrierManager.generateBarriers(databus.frame)
+
     this.player.update()
 
     // collide with land
     if (this.land.isCollideEdgeWith(this.player)) {
+      console.warn('landgameover')
       this.gameOver()
     }
 
     // collide with barriers
     for (let i = 0; i < databus.barriers.length; i++) {
-      if (databus.barriers[i].isCollideEdgeWith(this.player)) {
+      if (databus.barriers[i].MyisCollideEdgeWith(this.player)) {
+        console.warn('ballgameover')
         this.gameOver()
         break
       }
@@ -133,6 +163,7 @@ export default class Main {
 
     // score
     for (let i = 0; i < databus.barriers.length; i++) {
+      //isPassed返回值为true，这里加一分；否则不加分
       if (databus.barriers[i].isPassed(this.player)) {
         this.score.number++
           console.log(this.score.number)

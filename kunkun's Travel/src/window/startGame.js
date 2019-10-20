@@ -13,9 +13,9 @@ export default class StartGameWindow extends Group {
     super()
     this.startCallback = null
 
-    this.startButton = new Button('images/button_play.png', 0, 0, 116, 70)
+    this.startButton = new Button('images/button_play.png', 0, 0, 170, 70)
     //this.logo = new Sprite('images/title.png', 0, 0, 178, 48)
-    this.logo = new Sprite('images/title_kun.png', 0, 0, 300, 300)
+    this.logo = new Sprite('images/title_kun.png', 0, 0, 300, 175)
 
     let that = this
     this.startButton.setOnClickListener(function(view) {

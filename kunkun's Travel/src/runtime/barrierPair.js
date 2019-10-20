@@ -7,7 +7,7 @@ import Barrier from '../runtime/barrier.js'
 const BARRIER_IMG_SRC = 'images/pipe_down.png'
 const BARRIER_IMG1_SRC = 'images/pipe_up.png'
 const BARRIER_WIDTH = 52
-const BARRIER_HEIGHT = 320
+const BARRIER_HEIGHT = 200
 
 export default class BarrierPair extends Sprite {
 
@@ -19,7 +19,7 @@ export default class BarrierPair extends Sprite {
     //根据手机的分辨率从 px(像素) 的单位 转成为 dp
 
     this.left = 0
-    this.blank = 100
+    this.blank = 500
     //柱子间的间距
     
     this.scored = false
