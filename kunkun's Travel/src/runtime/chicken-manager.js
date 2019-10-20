@@ -4,7 +4,7 @@ export default class ChickenManager{
   constructor(){}
 
   generateChickens(frame){
-    if(frame%databus.barrierGenFrame===90){
+    if(frame%databus.barrierGenFrame===100){
       let barrier = databus.generateChicken('images/chicken.png', window.innerWidth, window.innerHeight - px2dp(180) - Math.random() * px2dp(300))
       databus.barriers.push(barrier)
     }
