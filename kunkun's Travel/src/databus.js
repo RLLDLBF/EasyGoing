@@ -37,7 +37,7 @@ export default class DataBus {
 
     // 全局难度参数
     this.speed = 2 // 速度
-    this.barrierGenFrame = 160 // 生成障碍物间隔帧数
+    this.barrierGenFrame = 200 // 生成障碍物间隔帧数
   }
 
   /**
