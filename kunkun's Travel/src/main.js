@@ -166,7 +166,7 @@ export default class Main {
       //isPassed返回值为true，这里加一分；否则不加分
       if (databus.barriers[i].isPassed(this.player)) {
         this.score.number++
-          console.log(this.score.number)
+          // console.log(this.score.number)
         this.score.setNumber(this.score.number)
       }
     }
