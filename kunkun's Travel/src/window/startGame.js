@@ -16,6 +16,7 @@ export default class StartGameWindow extends Group {
     this.startButton = new Button('images/button_play.png', 0, 0, 170, 70)
     //this.logo = new Sprite('images/title.png', 0, 0, 178, 48)
     this.logo = new Sprite('images/title_kun.png', 0, 0, 300, 175)
+    this.introduction = new Sprite('images/introduction.png',0,0,300,90)
 
     let that = this
     this.startButton.setOnClickListener(function(view) {
@@ -34,6 +35,7 @@ export default class StartGameWindow extends Group {
     this.frame.setGravity(Gravity.CENTER)
     this.contentLayout.addSprite(this.logo, Gravity.CENTER)
     this.contentLayout.addSprite(this.startButton, Gravity.CENTER)
+    this.contentLayout.addSprite(this.introduction,Gravity.CENTER)
     this.frame.setSprite(this.contentLayout)
   }
 
