@@ -175,12 +175,14 @@ export default class Main {
   gameOver() {
     databus.running = false
     databus.gameOver = true
+    databus.speed = 2
     audio.stop()
   }
 
   gameStart(){
     databus.running = true
     databus.gameOver = false
+    databus.speed = 2
     audio.play()
   }
 
