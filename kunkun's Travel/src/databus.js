@@ -36,7 +36,7 @@ export default class DataBus {
     this.pool = new Pool()
 
     // 全局难度参数
-    this.speed = 2 // 速度
+    this.speed = 1 // 速度
     this.barrierGenFrame = 200 // 生成障碍物间隔帧数
   }
 
