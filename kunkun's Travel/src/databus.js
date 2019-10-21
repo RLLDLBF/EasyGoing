@@ -36,7 +36,7 @@ export default class DataBus {
     this.pool = new Pool()
 
     // 全局难度参数
-    this.speed = 1 // 速度
+    this.speed = 2 // 速度
     this.barrierGenFrame = 200 // 生成障碍物间隔帧数
   }
 
@@ -48,10 +48,12 @@ export default class DataBus {
 
       barrier.visible = false
       let temp = this.barriers.shift()
+      // this.barriers.shift()
+      // let temp = barrier
       temp.visible = false
       this.barriers[0].left -= this.speed
       //根据速度显示障碍物左移
-      this.pool.put('barrier',temp)
+      //this.pool.put('barrier',temp)
       //this.pool.put('barrier', temp)
       
     }
@@ -62,32 +64,39 @@ export default class DataBus {
    */
   generateBasketball(basketball,x,y){
     //console.log('generateBasketball')
-    let barrier =  this.pool.get('barrier')
+    let temp = new BasketballPair()
+    temp.init(basketball, x, y)
+    return temp
 
-    if(barrier!=null){
-      barrier.init(basketball,x,y)
-      return barrier
-    }
-    else {
-      let temp =new BasketballPair()
-      temp.init(basketball,x,y)
-      return temp
-    }
+    // let barrier =  this.pool.get('barrier')
+
+    // if(barrier!=null){
+    //   barrier.init(basketball,x,y)
+    //   return barrier
+    // }
+    // else {
+    //   let temp =new BasketballPair()
+    //   temp.init(basketball,x,y)
+    //   return temp
+    // }
 
   }
 
   generateChicken(chicken,x,y){
-    let barrier = this.pool.get('barrier')
+    let temp = new ChickenPair()
+    temp.init(chicken, x, y)
+    return temp
+    // let barrier = this.pool.get('barrier')
 
-    if(barrier!=null){
-      barrier.init(chicken,x,y)
-      return barrier
-    }
-    else{
-      let temp = new ChickenPair()
-      temp.init(chicken,x,y)
-      return temp
-    }
+    // if(barrier!=null){
+    //   barrier.init(chicken,x,y)
+    //   return barrier
+    // }
+    // else{
+    //   let temp = new ChickenPair()
+    //   temp.init(chicken,x,y)
+    //   return temp
+    // }
   }
 
 
