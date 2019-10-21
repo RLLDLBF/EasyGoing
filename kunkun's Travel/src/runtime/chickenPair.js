@@ -50,10 +50,12 @@ export default class ChickenPair extends Sprite{
     if (this.scored) {
       return false
     }
+    /** 
     let score = (player.x>this.chicken.x+this.chicken.width&&
     player.y<this.chicken.y+this.chicken.height&&
     player.y+player.height>this.chicken.y)
-
+    **/
+    let score = this.chicken.isCollideEdgeWith(player)
     if(score){
       this.scored = true
     }
