@@ -42,7 +42,7 @@ export default class BasketballPair extends Sprite{
     this.basketball.update()
   }
 
-  MyisCollideEdgeWith(target){
+  isCollideEdgeWith(target){
     return(this.basketball.isCollideEdgeWith(target))
   }
 

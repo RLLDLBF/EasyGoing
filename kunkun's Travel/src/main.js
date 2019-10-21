@@ -154,7 +154,7 @@ export default class Main {
 
     // collide with barriers
     for (let i = 0; i < databus.barriers.length; i++) {
-      if (databus.barriers[i].MyisCollideEdgeWith(this.player)) {
+      if (databus.barriers[i].isCollideEdgeWith(this.player)) {
         //console.warn('ballgameover')
         this.gameOver()
         break

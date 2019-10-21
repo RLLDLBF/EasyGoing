@@ -42,7 +42,7 @@ export default class ChickenPair extends Sprite{
     this.chicken.update()
   }
 
-  MyisCollideEdgeWith(target) {
+  isCollideEdgeWith(target) {
     return false
   }
 
