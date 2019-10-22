@@ -15,3 +15,6 @@ This is a game which is very EasyGoing!
 - 修复了🐔和🏀显示与对象不同步的问题
 - 加入了产生🐔增速的机制
 - 加入了随机产生🐔和🏀的机制
+
+# 1.0.3
+- 加入了游戏结束时kunkun的语音
