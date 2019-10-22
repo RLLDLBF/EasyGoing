@@ -13,3 +13,5 @@ This is a game which is very EasyGoing!
 
 ## 1.0.2
 - 修复了🐔和🏀显示与对象不同步的问题
+- 加入了产生🐔增速的机制
+- 加入了随机产生🐔和🏀的机制
