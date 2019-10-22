@@ -136,11 +136,18 @@ export default class Main {
     this.barrierManager.update()
     this.barrierManager.generateBarriers(databus.frame)
     ***/
+  
+    let randomGen = Math.floor(Math.random() * 10)
     this.basketballManager.update()
-    this.basketballManager.generateBasketballs(databus.frame)
-
     this.chickenManager.update()
-    this.chickenManager.generateChickens(databus.frame)
+    if (randomGen%2==0){
+      this.basketballManager.generateBasketballs(databus.frame)
+    }
+    else{
+      this.chickenManager.generateChickens(databus.frame)
+    }
+   
+    
     // this.barrierManager.update()
     // this.barrierManager.generateBarriers(databus.frame)
 
