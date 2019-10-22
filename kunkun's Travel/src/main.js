@@ -26,6 +26,9 @@ audio.autoplay = true
 audio.loop = true
 audio.src = 'audio/bg_music.mp3'
 
+var audio_end = wx.createInnerAudioContext()
+audio_end.src = 'audio/do_what.mp3'
+
 
 export default class Main {
 
@@ -177,6 +180,7 @@ export default class Main {
     databus.gameOver = true
     databus.speed = 2
     audio.stop()
+    audio_end.play()
   }
 
   gameStart(){
@@ -184,6 +188,7 @@ export default class Main {
     databus.gameOver = false
     databus.speed = 2
     audio.play()
+    audio_end.stop()
   }
 
 }
