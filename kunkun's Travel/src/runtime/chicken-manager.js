@@ -5,9 +5,17 @@ export default class ChickenManager{
 
   generateChickens(frame){
     if(frame%databus.barrierGenFrame===100){
-      let barrier = databus.generateChicken('images/chicken.png', window.innerWidth, window.innerHeight - px2dp(180) - Math.random() * px2dp(300))
-      databus.barriers.push(barrier)
-      console.log('generate a chicken')
+      let randomGen = Math.floor(Math.random() * 10)
+      if (randomGen % 2 == 1) {
+        let barrier = databus.generateBasketball('images/basketball.png', window.innerWidth, window.innerHeight - px2dp(180) - Math.random() * px2dp(300))
+        databus.barriers.push(barrier)
+        //console.log('generate a basketball')
+      }
+      else {
+        let barrier = databus.generateChicken('images/chicken.png', window.innerWidth, window.innerHeight - px2dp(180) - Math.random() * px2dp(300))
+        databus.barriers.push(barrier)
+        //console.log('generate a chicken')
+      }
     }
   }
 

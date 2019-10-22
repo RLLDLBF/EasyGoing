@@ -64,7 +64,7 @@ export default class DataBus {
    */
   generateBasketball(basketball,x,y){
     //console.log('generateBasketball')
-    this.speed *= 1.05
+    // this.speed *= 1.05
     
     let temp = new BasketballPair()
     temp.init(basketball, x, y)
@@ -85,6 +85,7 @@ export default class DataBus {
   }
 
   generateChicken(chicken,x,y){
+    this.speed *= 1.05
     let temp = new ChickenPair()
     temp.init(chicken, x, y)
     return temp
