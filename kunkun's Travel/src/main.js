@@ -182,7 +182,11 @@ export default class Main {
     audio_end.play()
 
     this.player.img.src = 'images/kunkun_cry.png'
-  }
+    this.player.x-=10
+    this.player.y-=10
+    this.player.width = 80
+    this.player.height = 80
+  } 
 
   gameStart(){
     databus.running = true
