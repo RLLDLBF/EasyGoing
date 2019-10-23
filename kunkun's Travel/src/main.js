@@ -29,7 +29,6 @@ audio.src = 'audio/bg_music.mp3'
 var audio_end = wx.createInnerAudioContext()
 audio_end.src = 'audio/do_what.mp3'
 
-
 export default class Main {
 
   constructor() {
@@ -181,6 +180,8 @@ export default class Main {
     databus.speed = 2
     audio.stop()
     audio_end.play()
+
+    this.player.img.src = 'images/kunkun_cry.png'
   }
 
   gameStart(){
