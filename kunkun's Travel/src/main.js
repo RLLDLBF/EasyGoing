@@ -184,7 +184,7 @@ export default class Main {
     this.player.img.src = 'images/kunkun_cry.png'
     this.player.x-=15
     this.player.y-=10
-    this.player.width = 90
+    this.player.width = 95
     this.player.height = 80
   } 
 
