@@ -17,7 +17,9 @@ import GameOverWindow from './window/gameOver.js'
 import Number from './base/number.js'
 import FrameLayout from './base/frameLayout.js'
 
-let ctx = canvas.getContext('2d')
+import DataStore from './base/DataStore.js'
+
+// let ctx = canvas.getContext('2d')
 //绘制二维图
 
 //audio
@@ -29,12 +31,30 @@ audio.src = 'audio/bg_music.mp3'
 var audio_end = wx.createInnerAudioContext()
 audio_end.src = 'audio/do_what.mp3'
 
+let openDataContext = wx.getOpenDataContext()
+let sharedCanvas = openDataContext.canvas
+
+const ratio = wx.getSystemInfoSync().pixelRatio;
+
 export default class Main {
 
   constructor() {
-
+    this.canvas = canvas
+    this.ctx = canvas.getContext('2d')
     this.onCreate()
 
+    sharedCanvas.width = window.innerWidth * ratio
+    sharedCanvas.height = window.innerHeight * ratio
+    DataStore.getInstance().sharedCanvas = sharedCanvas
+
+    this.dataStore = DataStore.getInstance()
+    this.dataStore.canvas = this.canvas
+    this.dataStore.ctx = this.ctx
+    
+    // this.dataStore = DataStore.getInstance()
+    
+    // this.dataStore.canvas=this.canvas
+    // this.dataStore.ctx=this.ctx
   }
 
   onCreate() {
@@ -110,6 +130,7 @@ export default class Main {
   }
 
   render() {
+    let ctx = this.ctx
     this.bg.draw(ctx)
     /*** 
     this.barrierManager.draw(ctx)
@@ -123,10 +144,12 @@ export default class Main {
     this.startGameWindow.draw(ctx)
 
     this.scoreFrame.draw(ctx)
+    // ctx.drawImage(sharedCanvas, 0, 0,window.innerWidth,window.innerHeight)
     this.gameOverWindow.draw(ctx)
 
     if (databus.gameOver) {
       this.gameOverWindow.visible = true
+      // ctx.drawImage(sharedCanvas, 0, 0, window.innerWidth, window.innerHeight)
     }
   }
 
@@ -181,11 +204,14 @@ export default class Main {
     audio.stop()
     audio_end.play()
 
+    this.saveUserCloadStorage();
+
     this.player.img.src = 'images/kunkun_cry.png'
     this.player.x-=15
     this.player.y-=10
     this.player.width = 95
     this.player.height = 80
+    
   } 
 
   gameStart(){
@@ -194,6 +220,25 @@ export default class Main {
     databus.speed = 2
     audio.play()
     audio_end.stop()
+  }
+
+  saveUserCloadStorage() {
+
+    let score = '' + this.score.number;
+    wx.setUserCloudStorage({
+      KVDataList: [{ key: 'score', value: score }],
+      success: res => {
+        console.log(res);
+        // 让子域更新当前用户的最高分，因为主域无法得到getUserCloadStorage;
+        let openDataContext = wx.getOpenDataContext();
+        openDataContext.postMessage({
+          type: 'updateMaxScore',
+        });
+      },
+      fail: res => {
+        console.log(res);
+      }
+    });
   }
 
 }
