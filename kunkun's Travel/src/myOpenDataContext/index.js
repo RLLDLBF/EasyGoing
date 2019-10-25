@@ -155,7 +155,7 @@ function sortByScore(data) {
 
   })
   array.sort((a, b) => {
-    return a['score'] < b['score'];
+    return - parseInt(a['score']) + parseInt(b['score']);
   });
   myRank = array.findIndex((item) => {
     return item.nickname === myInfo.nickName && item.avatarUrl === myInfo.avatarUrl;
