@@ -85,7 +85,8 @@ export default class DataBus {
   }
 
   generateChicken(chicken,x,y){
-    this.speed *= 1.05
+    //add speed
+    this.speed +=0.05
     let temp = new ChickenPair()
     temp.init(chicken, x, y)
     return temp
