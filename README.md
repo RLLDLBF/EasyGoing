@@ -19,3 +19,6 @@ This is a game which is very EasyGoing!
 # 1.0.3
 - 加入了游戏结束时kunkun的语音
 - 加入了游戏结束时kunkun大哭的表情
+
+# 1.1.0
+- 加入好友分数排行榜功能
