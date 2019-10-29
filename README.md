@@ -1,6 +1,9 @@
 # EasyGoing
 This is a game which is very EasyGoing!
 
+# Running
+将项目以**小游戏**的方式导入**微信开发者工具**，编译后即可运行
+
 # Version
 
 ## 1.0.0
