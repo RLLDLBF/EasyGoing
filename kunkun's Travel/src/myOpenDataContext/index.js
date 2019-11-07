@@ -189,6 +189,7 @@ function getMyScore() {
       let lastScore = data.KVDataList[0].value || "0";
       // lastScore = parseInt(lastScore)
       //console.log(lastScore, data.KVDataList[1].value)
+      //修改分数
       if (!data.KVDataList[1]) {
         //console.log("here")
         saveMaxScore(lastScore);
